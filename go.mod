@@ -1,4 +1,4 @@
-module github.com/plantoncloud/argocd-instance-blueprint
+module github.com/plantoncloud/helm-release-pulumi-blueprint
 
 go 1.21
 
