@@ -2,9 +2,9 @@ module github.com/plantoncloud/helm-release-pulumi-blueprint
 
 go 1.21
 
-//replace github.com/plantoncloud/planton-cloud-apis => /Users/swarup/scm/github.com/plantoncloud/planton-cloud-apis
+//replace github.com/plantoncloud/planton-cloud-apis => /Users/deepthi/scm/github.com/plantoncloud/planton-cloud-apis
 
-//replace github.com/plantoncloud/pulumi-stack-runner-go-sdk => /Users/swarup/scm/github.com/plantoncloud/pulumi-stack-runner-go-sdk
+//replace github.com/plantoncloud/pulumi-stack-runner-go-sdk => /Users/deepthi/scm/github.com/plantoncloud/pulumi-stack-runner-go-sdk
 
 //replace github.com/plantoncloud-inc/go-commons => /Users/swarup/scm/github.com/plantoncloud-inc/go-commons
 
@@ -44,12 +44,15 @@ replace (
 )
 
 require (
-	github.com/pkg/errors v0.9.1 // indirect
+	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi/sdk/v3 v3.104.2
 	google.golang.org/grpc v1.59.0 // indirect
 )
 
-require github.com/plantoncloud/planton-cloud-apis v0.0.109
+require (
+	github.com/plantoncloud/planton-cloud-apis v0.0.113
+	github.com/plantoncloud/pulumi-stack-runner-go-sdk v0.0.0-00010101000000-000000000000
+)
 
 require (
 	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.31.0-20231115204500-e097f827e652.2 // indirect
@@ -101,8 +104,13 @@ require (
 	github.com/pgavlin/fx v0.1.6 // indirect
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
 	github.com/pkg/term v1.1.0 // indirect
+	github.com/plantoncloud-inc/go-commons v0.0.430 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.6.2 // indirect
+	github.com/pulumi/pulumi-aws/sdk/v6 v6.3.0 // indirect
+	github.com/pulumi/pulumi-gcp/sdk/v7 v7.2.1 // indirect
+	github.com/pulumi/pulumi-kubernetes/sdk/v3 v3.30.2 // indirect
+	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.7.1 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
