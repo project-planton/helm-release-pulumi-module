@@ -18,26 +18,26 @@ func (s *ResourceStack) Resources(ctx *pulumi.Context) error {
 		return errors.Wrap(err, "failed to setup kubernetes provider")
 	}
 
-	//// Convert map[string]string to pulumi.Map
-	//valuesPulumiMap := pulumi.Map{}
-	//for k, v := range s.Input.HelmRelease.Spec.Values {
-	//	valuesPulumiMap[k] = pulumi.String(v)
-	//}
+	// Convert map[string]string to pulumi.Map
+	valuesPulumiMap := pulumi.Map{}
+	for k, v := range s.Input.HelmRelease.Spec.HelmChart.Values {
+		valuesPulumiMap[k] = pulumi.String(v)
+	}
 
 	if _, err := helmv3.NewRelease(ctx, s.Input.HelmRelease.Metadata.Name, &helmv3.ReleaseArgs{
 		Name:      pulumi.String(s.Input.HelmRelease.Metadata.Name),
 		Namespace: pulumi.String(s.Input.HelmRelease.Metadata.Id),
 		RepositoryOpts: &helmv3.RepositoryOptsArgs{
-			Repo: pulumi.String(s.Input.HelmRelease.Spec.ChartRepo),
+			Repo: pulumi.String(s.Input.HelmRelease.Spec.HelmChart.Repo),
 		},
-		Chart:           pulumi.String(s.Input.HelmRelease.Spec.ChartName),
-		Version:         pulumi.String(s.Input.HelmRelease.Spec.ChartVersion),
+		Chart:           pulumi.String(s.Input.HelmRelease.Spec.HelmChart.Name),
+		Version:         pulumi.String(s.Input.HelmRelease.Spec.HelmChart.Version),
 		CreateNamespace: pulumi.Bool(true),
 		CleanupOnFail:   pulumi.Bool(false),
 		ForceUpdate:     pulumi.Bool(true),
 		AllowNullValues: pulumi.Bool(true),
 		Atomic:          pulumi.Bool(false),
-		Values:          pulumi.Map{},
+		Values:          valuesPulumiMap,
 	}, pulumi.Provider(kubernetesProvider)); err != nil {
 		return errors.Wrap(err, "failed to create new helm-release")
 	}
