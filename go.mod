@@ -2,9 +2,9 @@ module github.com/plantoncloud/helm-release-pulumi-blueprint
 
 go 1.21
 
-replace github.com/plantoncloud/planton-cloud-apis => /Users/deepthi/scm/github.com/plantoncloud/planton-cloud-apis
+//replace github.com/plantoncloud/planton-cloud-apis => /Users/deepthi/scm/github.com/plantoncloud/planton-cloud-apis
 
-replace github.com/plantoncloud/pulumi-stack-runner-go-sdk => /Users/deepthi/scm/github.com/plantoncloud/pulumi-stack-runner-go-sdk
+//replace github.com/plantoncloud/pulumi-stack-runner-go-sdk => /Users/deepthi/scm/github.com/plantoncloud/pulumi-stack-runner-go-sdk
 
 //replace github.com/plantoncloud-inc/go-commons => /Users/swarup/scm/github.com/plantoncloud-inc/go-commons
 
