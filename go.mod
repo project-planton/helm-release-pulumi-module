@@ -49,17 +49,11 @@ require (
 	google.golang.org/grpc v1.59.0 // indirect
 )
 
-<<<<<<< HEAD
-require github.com/plantoncloud/planton-cloud-apis v0.0.132
-||||||| e94f8d9
-require github.com/plantoncloud/planton-cloud-apis v0.0.109
-=======
 require (
-	github.com/plantoncloud/planton-cloud-apis v0.0.121
-	github.com/plantoncloud/pulumi-stack-runner-go-sdk v0.0.42
+	github.com/plantoncloud/planton-cloud-apis v0.0.132
+	github.com/plantoncloud/pulumi-stack-runner-go-sdk v0.0.43
 	github.com/pulumi/pulumi-kubernetes/sdk/v3 v3.30.2
 )
->>>>>>> 1c06650cb13dd0f36a190ae95f85afd0c382829f
 
 require (
 	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.31.0-20231115204500-e097f827e652.2 // indirect
