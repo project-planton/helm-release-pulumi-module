@@ -1,10 +1,12 @@
 module github.com/plantoncloud/helm-release-pulumi-blueprint
 
-go 1.21
+go 1.22
+
+toolchain go1.22.4
 
 //replace github.com/plantoncloud/planton-cloud-apis => /Users/deepthi/scm/github.com/plantoncloud/planton-cloud-apis
 
-//replace github.com/plantoncloud/pulumi-stack-runner-go-sdk => /Users/deepthi/scm/github.com/plantoncloud/pulumi-stack-runner-go-sdk
+//replace github.com/plantoncloud/stack-job-runner-golang-sdk => /Users/deepthi/scm/github.com/plantoncloud/stack-job-runner-golang-sdk
 
 //replace github.com/plantoncloud-inc/go-commons => /Users/swarup/scm/github.com/plantoncloud-inc/go-commons
 
@@ -50,7 +52,7 @@ require (
 )
 
 require (
-	github.com/plantoncloud/planton-cloud-apis v0.0.204
+	github.com/plantoncloud/planton-cloud-apis v0.0.211
 	github.com/plantoncloud/pulumi-blueprint-golang-commons v0.0.0-20240702151641-1f0f663273d0
 	github.com/pulumi/pulumi-kubernetes/sdk/v3 v3.30.2
 )
@@ -106,7 +108,7 @@ require (
 	github.com/pgavlin/fx v0.1.6 // indirect
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
 	github.com/pkg/term v1.1.0 // indirect
-	github.com/plantoncloud-inc/go-commons v0.0.431 // indirect
+	github.com/plantoncloud-inc/go-commons v0.0.433 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.9.1 // indirect
 	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.7.1 // indirect
