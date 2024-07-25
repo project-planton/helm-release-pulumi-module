@@ -1,1 +1,1 @@
-# helm-release-pulumi-blueprint
+# helm-release-pulumi-module
