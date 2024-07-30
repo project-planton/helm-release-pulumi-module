@@ -1,4 +1,4 @@
-package helmreleasepulumimodule
+package pkg
 
 import (
 	"github.com/pkg/errors"
