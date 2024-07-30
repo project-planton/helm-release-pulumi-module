@@ -5,7 +5,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 )
 
-func PulumiOutputToStackOutputsConverter(stackOutput auto.OutputMap,
+func PulumiOutputsToStackOutputsConverter(stackOutput auto.OutputMap,
 	input *model.HelmReleaseStackInput) *model.HelmReleaseStackOutputs {
 	return &model.HelmReleaseStackOutputs{}
 }
