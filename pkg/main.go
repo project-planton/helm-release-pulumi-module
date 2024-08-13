@@ -2,7 +2,7 @@ package pkg
 
 import (
 	"github.com/pkg/errors"
-	"github.com/plantoncloud/planton-cloud-apis/zzgo/cloud/planton/apis/code2cloud/v1/kubernetes/helmrelease/model"
+	"github.com/plantoncloud/planton-cloud-apis/zzgo/cloud/planton/apis/code2cloud/v1/kubernetes/helmrelease"
 	"github.com/plantoncloud/pulumi-module-golang-commons/pkg/datatypes/maps"
 	"github.com/plantoncloud/pulumi-module-golang-commons/pkg/provider/kubernetes/pulumikubernetesprovider"
 	helmv3 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/helm/v3"
@@ -12,7 +12,7 @@ import (
 )
 
 type ResourceStack struct {
-	Input  *model.HelmReleaseStackInput
+	Input  *helmrelease.HelmReleaseStackInput
 	Labels map[string]string
 }
 
