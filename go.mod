@@ -12,8 +12,8 @@ toolchain go1.23.0
 
 require (
 	github.com/pkg/errors v0.9.1
-	github.com/plantoncloud/planton-cloud-apis v0.1.43
-	github.com/plantoncloud/pulumi-module-golang-commons v0.0.0-20240905105923-c9458da08f51
+	github.com/plantoncloud/planton-cloud-apis v0.1.52
+	github.com/plantoncloud/pulumi-module-golang-commons v0.0.0-20240908135000-2559a6745eda
 	github.com/pulumi/pulumi-kubernetes/sdk/v3 v3.30.2
 	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.15.0
 	github.com/pulumi/pulumi/sdk/v3 v3.127.0

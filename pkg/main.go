@@ -3,7 +3,7 @@ package pkg
 import (
 	"github.com/pkg/errors"
 	"github.com/plantoncloud/planton-cloud-apis/zzgo/cloud/planton/apis/code2cloud/v1/kubernetes/helmrelease"
-	"github.com/plantoncloud/pulumi-module-golang-commons/pkg/datatypes/maps"
+	"github.com/plantoncloud/pulumi-module-golang-commons/pkg/datatypes/stringmaps/convertstringmaps"
 	"github.com/plantoncloud/pulumi-module-golang-commons/pkg/provider/kubernetes/pulumikubernetesprovider"
 	helmv3 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/helm/v3"
 	kubernetescorev1 "github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes/core/v1"
@@ -51,7 +51,7 @@ func (s *ResourceStack) Resources(ctx *pulumi.Context) error {
 			Chart:     pulumi.String(helmRelease.Spec.HelmChart.Name),
 			Version:   pulumi.String(helmRelease.Spec.HelmChart.Version),
 			Namespace: createdNamespace.Metadata.Name().Elem(),
-			Values:    maps.ConvertToPulumiMap(helmRelease.Spec.HelmChart.Values),
+			Values:    convertstringmaps.ConvertGoStringMapToPulumiMap(helmRelease.Spec.HelmChart.Values),
 			FetchArgs: helmv3.FetchArgs{
 				Repo: pulumi.String(helmRelease.Spec.HelmChart.Repo),
 			},
