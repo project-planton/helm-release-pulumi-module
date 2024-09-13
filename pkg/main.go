@@ -11,21 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ResourceStack struct {
-	Input  *helmrelease.HelmReleaseStackInput
-	Labels map[string]string
-}
+func Resources(ctx *pulumi.Context, stackInput *helmrelease.HelmReleaseStackInput) error {
+	locals := initializeLocals(ctx, stackInput)
 
-func (s *ResourceStack) Resources(ctx *pulumi.Context) error {
 	//create kubernetes-provider from the credential in the stack-input
 	kubernetesProvider, err := pulumikubernetesprovider.GetWithKubernetesClusterCredential(ctx,
-		s.Input.KubernetesClusterCredential, "kubernetes")
+		stackInput.KubernetesClusterCredential, "kubernetes")
 	if err != nil {
 		return errors.Wrap(err, "failed to setup gcp provider")
 	}
 
 	//create a new descriptive variable for the api-resource in the input.
-	helmRelease := s.Input.ApiResource
+	helmRelease := stackInput.ApiResource
 
 	//decide on the name of the namespace
 	namespaceName := helmRelease.Metadata.Id
@@ -36,7 +33,7 @@ func (s *ResourceStack) Resources(ctx *pulumi.Context) error {
 		&kubernetescorev1.NamespaceArgs{
 			Metadata: metav1.ObjectMetaPtrInput(&metav1.ObjectMetaArgs{
 				Name:   pulumi.String(namespaceName),
-				Labels: pulumi.ToStringMap(s.Labels),
+				Labels: pulumi.ToStringMap(locals.Labels),
 			}),
 		}, pulumi.Timeouts(&pulumi.CustomTimeouts{Create: "5s", Update: "5s", Delete: "5s"}),
 		pulumi.Provider(kubernetesProvider))
