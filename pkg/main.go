@@ -16,13 +16,13 @@ func Resources(ctx *pulumi.Context, stackInput *helmrelease.HelmReleaseStackInpu
 
 	//create kubernetes-provider from the credential in the stack-input
 	kubernetesProvider, err := pulumikubernetesprovider.GetWithKubernetesClusterCredential(ctx,
-		stackInput.KubernetesClusterCredential, "kubernetes")
+		stackInput.KubernetesCluster, "kubernetes")
 	if err != nil {
 		return errors.Wrap(err, "failed to setup gcp provider")
 	}
 
 	//create a new descriptive variable for the api-resource in the input.
-	helmRelease := stackInput.ApiResource
+	helmRelease := stackInput.Target
 
 	//decide on the name of the namespace
 	namespaceName := helmRelease.Metadata.Id
