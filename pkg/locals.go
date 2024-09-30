@@ -1,8 +1,7 @@
 package pkg
 
 import (
-	"github.com/plantoncloud/project-planton/apis/zzgo/cloud/planton/apis/code2cloud/v1/kubernetes/helmrelease"
-	"github.com/plantoncloud/project-planton/apis/zzgo/cloud/planton/apis/commons/apiresource/enums/apiresourcekind"
+	helmreleasev1 "buf.build/gen/go/plantoncloud/project-planton/protocolbuffers/go/project/planton/apis/provider/kubernetes/helmrelease/v1"
 	"github.com/plantoncloud/pulumi-module-golang-commons/pkg/provider/kubernetes/kuberneteslabelkeys"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"strconv"
@@ -12,7 +11,7 @@ type Locals struct {
 	Labels map[string]string
 }
 
-func initializeLocals(ctx *pulumi.Context, stackInput *helmrelease.HelmReleaseStackInput) *Locals {
+func initializeLocals(ctx *pulumi.Context, stackInput *helmreleasev1.HelmReleaseStackInput) *Locals {
 	locals := &Locals{}
 
 	locals.Labels = map[string]string{
@@ -20,7 +19,7 @@ func initializeLocals(ctx *pulumi.Context, stackInput *helmrelease.HelmReleaseSt
 		kuberneteslabelkeys.Organization: stackInput.Target.Spec.EnvironmentInfo.OrgId,
 		kuberneteslabelkeys.Resource:     strconv.FormatBool(true),
 		kuberneteslabelkeys.ResourceId:   stackInput.Target.Metadata.Id,
-		kuberneteslabelkeys.ResourceKind: apiresourcekind.ApiResourceKind_helm_release.String(),
+		kuberneteslabelkeys.ResourceKind: "helm_release",
 	}
 	return locals
 }

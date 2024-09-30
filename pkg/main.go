@@ -1,8 +1,8 @@
 package pkg
 
 import (
+	helmreleasev1 "buf.build/gen/go/plantoncloud/project-planton/protocolbuffers/go/project/planton/apis/provider/kubernetes/helmrelease/v1"
 	"github.com/pkg/errors"
-	"github.com/plantoncloud/project-planton/apis/zzgo/cloud/planton/apis/code2cloud/v1/kubernetes/helmrelease"
 	"github.com/plantoncloud/pulumi-module-golang-commons/pkg/datatypes/stringmaps/convertstringmaps"
 	"github.com/plantoncloud/pulumi-module-golang-commons/pkg/provider/kubernetes/pulumikubernetesprovider"
 	helmv3 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/helm/v3"
@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func Resources(ctx *pulumi.Context, stackInput *helmrelease.HelmReleaseStackInput) error {
+func Resources(ctx *pulumi.Context, stackInput *helmreleasev1.HelmReleaseStackInput) error {
 	locals := initializeLocals(ctx, stackInput)
 
 	//create kubernetes-provider from the credential in the stack-input
