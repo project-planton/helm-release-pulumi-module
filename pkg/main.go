@@ -45,12 +45,12 @@ func Resources(ctx *pulumi.Context, stackInput *helmreleasev1.HelmReleaseStackIn
 	_, err = helmv3.NewChart(ctx,
 		helmRelease.Metadata.Id,
 		helmv3.ChartArgs{
-			Chart:     pulumi.String(helmRelease.Spec.HelmChart.Name),
-			Version:   pulumi.String(helmRelease.Spec.HelmChart.Version),
+			Chart:     pulumi.String(helmRelease.Spec.Name),
+			Version:   pulumi.String(helmRelease.Spec.Version),
 			Namespace: createdNamespace.Metadata.Name().Elem(),
-			Values:    convertstringmaps.ConvertGoStringMapToPulumiMap(helmRelease.Spec.HelmChart.Values),
+			Values:    convertstringmaps.ConvertGoStringMapToPulumiMap(helmRelease.Spec.Values),
 			FetchArgs: helmv3.FetchArgs{
-				Repo: pulumi.String(helmRelease.Spec.HelmChart.Repo),
+				Repo: pulumi.String(helmRelease.Spec.Repo),
 			},
 		}, pulumi.Parent(createdNamespace))
 	if err != nil {
